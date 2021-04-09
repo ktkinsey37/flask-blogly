@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1>Tag:</h1>
+    <h3>{{ tag.name }}</h3>
+
+    <br><br>
+    Blog Posts Tagged with this tag:
+    {% for post in tag.posts %}
+    <a href="/posts/{{post.id}}" class="btn btn-warning btn-sm" method="GET">
+    {{ post.title }}
+    </a>
+
+    {% endfor %}
+    <br>
+    <br>
+    <form action="/tags/{{tag.id}}/edit" method="GET">
+        <button class="btn btn-warning">Edit Tag!</button>
+    </form>
+    <br>
+    <form action="/tags/{{tag.id}}/delete" method="POST">
+        <button class="btn btn-warning">Delete Tag!</button>
+    </form> 
+</div>
+
+{% endblock %}

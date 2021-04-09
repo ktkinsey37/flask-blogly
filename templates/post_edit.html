@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<form action="/posts/{{post.id}}/edit" method="POST">
+    <label for="title">Title:</label>
+    <input type="text" name="title">
+    <br><br>
+    <label for="content">Content:</label>
+    <input type="text" name="content">
+    <br><br>
+    <button class="btn btn-warning">Add New Post!</button>
+    <br>
+    {% for tag in tags %}
+    <input type="checkbox" value='{{tag.id}}' name='tag'><label for="{{tag.id}}">{{tag.name}}</label><br>
+    {% endfor %}
+
+    
+   
+</form>
+
+<!-- <form action="/tags/new" method="GET">
+    <label for="tag">Tag:</label>
+    <input type="text" name="tag">
+    <br><br>
+    <button class="btn btn-warning">Add New Tag!</button>
+</form> -->
+{% endblock %}

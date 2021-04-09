@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+     {{ user.get_full_name() }}
+    <img style='max-width: 400px; max-height: 400px' class="card-img-top" src="{{user.image_url}}">
+</div>
+
+<br>
+<div class="container">
+    <h1>{{post.title}}</h1>
+    <p>{{post.content}}</p>
+    {{post.created_at}}
+    <br><br>
+    Tags: 
+    {% for tag in tags %}
+    <a href="/tags/{{tag.id}}" class="btn btn-warning btn" method="GET">
+    {{ tag.name }}
+    </a>
+    {% endfor %}
+</div>
+
+<div class="container">
+    <form action="/posts/{{post.id}}/edit" method="GET">
+        <button class="btn btn-warning">Edit!</button>
+    </form>
+    <br><br>
+    <form action="/posts/{{post.id}}/delete" method="POST">
+        <button class="btn btn-warning">Delete Post!</button>
+    </form>
+    <br><br>
+    <form action="/users/{{user.id}}" method="GET">
+        <button class="btn btn-warning">Back to {{user.get_full_name()}}'s page!</button>
+    </form>
+    <br><br>
+    <form action="/users" method="GET">
+        <button class="btn btn-warning">All Users!</button>
+    </form>
+</div>
+{% endblock %}

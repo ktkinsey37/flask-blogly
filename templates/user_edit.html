@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+<div class="container">
+    {% block content %}
+    {{ user.get_full_name() }}
+    <br><br>
+    <form action="/users/{{user.id}}/edit" method="POST">
+        <label for="fname">First Name:</label>
+        <input type="text" name="fname">
+        <br><br>
+        <label for="lname">Last Name:</label>
+        <input type="text" name="lname">
+        <br><br>
+        <label for="image">Image URL:</label>
+        <input type="text" name="image">
+        <br><br>
+        <button class="btn btn-warning">Submit Edit!</button>
+    </form>
+    {% endblock %}
+</div>

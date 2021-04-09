@@ -1,0 +1,23 @@
+.container {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    border: 3px solid #ffc107;
+    padding: 10px;
+    margin: 5px;
+  }
+
+html body {
+  color:#ffc107;
+  background: teal;
+}
+
+.container-no-border {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    padding: 10px;
+    margin: 5px;
+  }

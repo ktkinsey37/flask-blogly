@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+<div class="container-no-border">
+{% for user in users %}
+    <div class="container">
+        <img style='max-width: 200px; max-height: 200px' src="{{user.image_url}}">
+        <a href="/users/{{user.id}}" method="GET">
+        {{ user.get_full_name()}}
+        </a>
+        <br>
+    </div>
+    {% endfor %}
+    <br>
+    <form action="/users/new" method="GET">
+        <button class="btn btn-warning">Add A New User!</button>
+    </form>
+    <br>
+    <form action="/tags" method="GET">
+        <button class="btn btn-warning">View Tags!</button>
+    </form>
+    {% endblock %}
+</div>
